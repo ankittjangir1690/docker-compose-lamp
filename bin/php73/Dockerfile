@@ -1,4 +1,5 @@
-FROM php:7.3-apache-stretch
+#FROM php:7.3-apache-stretch
+FROM php:7.0.33-apache-jessie
 
 # Surpresses debconf complaints of trying to install apt packages interactively
 # https://github.com/moby/moby/issues/4032#issuecomment-192327844
