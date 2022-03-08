@@ -40,7 +40,7 @@ services:
       - database
     environment:
       # PMA_HOST: database
-      # PMA_PORT: 3306
+      PMA_PORT: 3306
       # PMA_USER: ${MYSQL_USER}
       # PMA_PASSWORD: ${MYSQL_PASSWORD}
       # MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -54,17 +54,6 @@ services:
     volumes: 
       - /sessions
       - ${PHP_INI-./config/php/php.ini}:/usr/local/etc/php/conf.d/php-phpmyadmin.ini
-  
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin:5.0.1
-  #   restart: always
-  #   environment:
-  #     PMA_HOST: mysql-server
-  #     PMA_USER: root
-  #     PMA_PASSWORD: secret
-  #   ports:
-  #     - "3306:80"
-
 
   redis:
     container_name: '${COMPOSE_PROJECT_NAME}-redis'
