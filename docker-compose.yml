@@ -39,14 +39,14 @@ services:
     links:
       - database
     environment:
-      # PMA_HOST: database
+      PMA_HOST: database
       PMA_PORT: 3306
       # PMA_USER: ${MYSQL_USER}
       # PMA_PASSWORD: ${MYSQL_PASSWORD}
       # MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       # MYSQL_USER: ${MYSQL_USER}
-      # MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      PMA_HOST: mysql-server
+      # # MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      # PMA_HOST: mysql-server
       PMA_USER: root
       PMA_PASSWORD: secret
     ports:
@@ -60,3 +60,23 @@ services:
     image: redis:latest
     ports:
       - "127.0.0.1:${HOST_MACHINE_REDIS_PORT}:6379"
+
+
+
+  # mysql-server:
+  #   image: mysql:8.0.19
+  #   restart: always
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: secret
+  #   volumes:
+  #     - mysql-data:/var/lib/mysql
+
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin:5.0.1
+  #   restart: always
+  #   environment:
+  #     PMA_HOST: mysql-server
+  #     PMA_USER: root
+  #     PMA_PASSWORD: secret
+  #   ports:
+  #     - "5000:80"
